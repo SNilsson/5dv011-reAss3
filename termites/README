@@ -1,0 +1,30 @@
+COMPILATION
+===========
+
++ To compile the program for debugging, use
+
+  make debug
+
++ To compile the program with optimizations turned on, use
+
+  make release
+
++ To clean all intermediate files and the executable, use
+  
+  make clean
+
++ You must clean all files before switching between debug and relase.
+
+
+USAGE EXAMPLES
+==============
+
++ To get help on the available options, use
+
+  ./run.x -?
+
++ As a small example, try
+
+  ./run.x -w 40 -h 30 -s 10 -v
+
+
