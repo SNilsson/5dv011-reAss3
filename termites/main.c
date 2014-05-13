@@ -75,7 +75,8 @@ int main( int argc,
 
     /* Flag controlling verbose output (default: OFF). */
     int verbose = 0;
-
+	/* Number of allowed threads */
+	int num_of_threads = 0;
     /* Parse the command line options. */
     int optind = 1;
     while( optind < argc ) {
@@ -104,6 +105,9 @@ int main( int argc,
 	    optind += 1;
 	} else if( strcmp( argv[ optind ], "-?" ) == 0 ) {
 	    usage( argv[ 0 ] );
+	} else if( strcmp( argv[ optind ], "-n" ) == 0 ) {
+		assert( optind +1 < argc);
+		num_of_threads = atoi( argv[ optin +1 ] );
 	} else {
 	    usage( argv[ 0 ] );
 	}
@@ -115,7 +119,6 @@ int main( int argc,
     assert( termite_fraction > 0.0 && termite_fraction < 1.0 );
     assert( chip_fraction > 0.0 && chip_fraction < 1.0 );
     assert( num_time_steps > 0 );
-
     /* Compute the actual number of termites and wood chips. */
     int num_termites = (int) (width * height * termite_fraction);
     int num_chips = (int) (width * height * chip_fraction);
